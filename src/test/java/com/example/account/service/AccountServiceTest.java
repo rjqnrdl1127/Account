@@ -1,8 +1,8 @@
 package com.example.account.service;
 
 import com.example.account.domain.Account;
-import com.example.account.domain.AccountStatus;
-import com.example.account.repository.AccountReposistory;
+import com.example.account.type.AccountStatus;
+import com.example.account.repository.AccountRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class AccountServiceTest {
     @Mock
-    private AccountReposistory accountReposistory;
+    private AccountRepository accountReposistory;
 
     @InjectMocks
     private AccountService accountService;
@@ -64,13 +64,13 @@ class AccountServiceTest {
 
     @BeforeEach
     void init() {
-        accountService.createAccount();
+        accountService.createAccount(1L, 10000L);
     }
 
     @Test
     @DisplayName("Test 이름 변경")
     void testGetAccount() {
-        accountService.createAccount();
+        accountService.createAccount(1L, 10000L);
         Account account = accountService.getAccount(1L);
 
         assertEquals("40000", account.getAccountNumber());
