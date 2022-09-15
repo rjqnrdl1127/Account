@@ -253,4 +253,11 @@ class AccountServiceTest {
         //then
         assertEquals(ErrorCode.ACCOUNT_ALREADY_UNREGISTERED, exception.getErrorCode());
     }
+
+    @Test
+    void () {
+        //given
+        //when
+        //then
+    }
 }
